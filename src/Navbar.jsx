@@ -1,10 +1,12 @@
 import React from 'react'
+import { useState } from 'react'
+import Addmodal from './Addmodal'
 
-const Navbar = () => {
+const Navbar = ({openmodal,setopenmodal,anim}) => {
   return (
     <div className='navbar'>
       <div className='haut'>
-      <button>ADD</button>
+      <button onClick={()=>setopenmodal(true)} >ADD</button>
       <label>search</label>
       <input type="text" name="search" id="" />
       </div>

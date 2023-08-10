@@ -5,6 +5,8 @@ import Sectin1 from './Sectin1';
 import Cards from './Cards';
 import Footer from './Footer';
 import Login from './Login';
+import { useState } from 'react';
+import Addmodal from './Addmodal';
 
 
 const App = () => {
@@ -29,27 +31,20 @@ const App = () => {
       descripition:"protéine de haute qualité",
       prix:"15£"
   },
+]
+  const [newproduct, setnewproduct] = useState({
+  imgsrc:"",
+  descripition:"",
+  prix:""
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  ]
+  })
+  const add=()=>{setnewproduct([...anim,newproduct])}
+  const [openmodal, setopenmodal] = useState(false)
   return (
     <div className="App">
-    <Navbar />
+      {openmodal?<Addmodal add={add} newproduct={newproduct} setnewproduct={setnewproduct}  />:null}
+    <Navbar setopenmodal={setopenmodal} openmodal={openmodal}  />
     <Sectin1 />
     <Cards anim={anim}/>
     <Footer/>
